@@ -1,0 +1,24 @@
+{
+  "name": "social-network-app-with-mangodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joyce750526/Social-Network-APP-with-MangoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joyce750526/Social-Network-APP-with-MangoDB/issues"
+  },
+  "homepage": "https://github.com/Joyce750526/Social-Network-APP-with-MangoDB#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
+}
