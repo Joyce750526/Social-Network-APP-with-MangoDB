@@ -5,8 +5,8 @@ module.exports = {
   // Get all users
   getUsers(req, res) {
     User.find()
-      .then(async (users) => {
-        return res.json(users);
+      .then(async (user) => {
+        return res.json(user);
       })
       .catch((err) => {
         console.log(err);
@@ -42,7 +42,7 @@ module.exports = {
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $pull: { friends: req.params.userId } },
+      { $set: req.body },
       { runValidators: true, new: true }
     )
       .then((user) =>

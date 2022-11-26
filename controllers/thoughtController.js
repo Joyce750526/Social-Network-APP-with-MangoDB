@@ -35,23 +35,6 @@ module.exports = {
       .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
-  // Delete a thought and remove them from the user
-  deleteThought(req, res) {
-    Thought.findOneAndRemove({ _id: req.params.thoughtId })
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: "No such thought exists" })
-          : Thought.findOneAndRemove(
-            { thought: req.params.thoughtId },
-            { $pull: { users: req.params.thoughtId } },
-            { new: true }
-          )
-      )
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  },
 
   // Update a thought
   updateThought(req, res) {
@@ -61,7 +44,7 @@ module.exports = {
           ? res.status(404).json({ message: "No thought with this ID" })
           : Thought.findOneAndUpdate(
             { thought: req.params.thoughtId },
-            { $pull: { users: req.params.thoughtId } },
+            { $set: req.body },
             { new: true }
           )
       )
@@ -71,7 +54,22 @@ module.exports = {
       });
   },
 
-  // add a reaction
+    // Delete a thought and remove them from the user- mini project
+    deleteThought(req, res) {
+      Thought.findOneAndRemove({ _id: req.params.thoughtId })
+        .then((thought) =>
+          !thought
+            ? res.status(404).json({ message: "No such user exists" })
+            : res.status(200).json({ message: "The user was deleted" })
+        )
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    },
+
+    
+  // add a reaction -add friend
   addReaction(req, res) {
     Thought.findOneAndUpdate(
       // Look for the thought ID
@@ -87,7 +85,7 @@ module.exports = {
       });
   },
  
-  // delete a reaction
+  // remove a reaction
   removeReaction(req, res) {
     Thought.findOneAndUpdate(
       // Look for the thought ID
@@ -104,44 +102,4 @@ module.exports = {
       .then(() => res.json({ message: "Reaction deleted!" }))
       .catch((err) => res.status(500).json(err)); // I keep getting this error, but the reaction deletes correctly
   },
-};
-
-
-
-
-  // These will eventually become "Add Friends" and "Remove Friend" Functions
-  //   // Add an assignment to a student
-  //   addAssignment(req, res) {
-  //     console.log('You are adding an assignment');
-  //     console.log(req.body);
-  //     Student.findOneAndUpdate(
-  //       { _id: req.params.studentId },
-  //       { $addToSet: { assignments: req.body } },
-  //       { runValidators: true, new: true }
-  //     )
-  //       .then((student) =>
-  //         !student
-  //           ? res
-  //               .status(404)
-  //               .json({ message: 'No student found with that ID :(' })
-  //           : res.json(student)
-  //       )
-  //       .catch((err) => res.status(500).json(err));
-  //   },
-  //   // Remove assignment from a student
-  //   removeAssignment(req, res) {
-  //     Student.findOneAndUpdate(
-  //       { _id: req.params.studentId },
-  //       { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
-  //       { runValidators: true, new: true }
-  //     )
-  //       .then((student) =>
-  //         !student
-  //           ? res
-  //               .status(404)
-  //               .json({ message: 'No student found with that ID :(' })
-  //           : res.json(student)
-  //       )
-  //       .catch((err) => res.status(500).json(err));
-  //   },
 };
