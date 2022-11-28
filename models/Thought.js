@@ -2,27 +2,7 @@ const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
 const moment = require("moment");
 
-// Schema to create Reaction model
-const reactionSchema = new Schema({
-  reactionId: {
-    type: Schema.Types.ObjectId,
-    default: () => new Types.ObjectId(),
-  },
-  reactionBody: {
-    type: String,
-    required: true,
-    max_length: 280,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: createdAtValue => moment(createdAtValue).format("MMM Do YYYY [at] h:mm a"),
-  },
-});
+
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
@@ -54,7 +34,7 @@ const thoughtSchema = new Schema(
   }
 );
 
-// Create a virtual property `friendCount` that gets the amount of friend per post
+// Create a virtual property ReactionCount
 thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });

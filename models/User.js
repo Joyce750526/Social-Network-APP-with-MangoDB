@@ -34,9 +34,15 @@ const userSchema = new Schema(
     },
   }
 );
+
 // Create a virtual property `friendCount` that gets the amount of friend per post
-userSchema.virtual('friendCount').get(function () {
+userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
+});
+
+// Create a virtual property `thoughtCount` that gets the amount of thought per post
+userSchema.virtual("thoughtCount").get(function () {
+  return this.thoughts.length;
 });
 
 const User = model("User", userSchema);
