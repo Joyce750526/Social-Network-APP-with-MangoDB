@@ -20,9 +20,7 @@ module.exports = {
       .then(async (user) =>
         !user
           ? res.status(404).json({ message: "No user with that ID" })
-          : res.json({
-            user,
-          })
+          : res.json(user)
       )
       .catch((err) => {
         console.log(err);
@@ -57,12 +55,13 @@ module.exports = {
 
   // delete a user
   deleteUser(req, res) {
-    User.findOneAndRemove({ _id: req.params.userId })
+    User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No such user exists" })
-          : res.status(200).json({ message: "The user was deleted" })
+          : User.deleteOne({ _id: { $in: user.userId } })
       )
+      .then(() => res.json({ message: "User was deleted!" }))
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -70,7 +69,7 @@ module.exports = {
   },
 
   // These will eventually become "Add Friends" and "Remove Friend" Functions
-  // Add an friend
+  // Add an friend to a user
   addFriend(req, res) {
     console.log("You are adding a friend");
     console.log(req.body);
@@ -81,12 +80,12 @@ module.exports = {
     )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: "No user found with that ID :(" })
+          ? res.status(404).json({ message: "No user found with that ID !" })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
-  
+
   // Remove a friend from a user
   removeFriend(req, res) {
     User.findOneAndUpdate(
