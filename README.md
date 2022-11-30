@@ -63,31 +63,78 @@ To use this Backend Platform Application. Please refer the following steps.
 
 ## Screenshots:
 
-<br>
 
-**Get All Product**
-![Get All Product Screenshots.](./Assets/screenshots/get%20all%20product.png)
+<p align= "left"><h3>** User Routes Screenshots ** </h3>
 
 <br>
 
-**Get All Categories**
-![Get All Categories Screenshots.](./Assets/screenshots/get%20all%20categories.png)
+**Get All Users**
+      <img src="Assets/screenshots/user routes/1- get all user.png" align="center">
+      <br>
+
+**Get A Single User**  
+      <img src="Assets/screenshots/user routes/2- get a single user.png" align="center">
+      <br>
+
+**Create A User**
+      <img src="Assets/screenshots/user routes/3- create a user.png" align="center">
+      <br>
+
+**Update A User**  
+      <img src="Assets/screenshots/user routes/4- update a user.png" align="center">
+      <br>
+
+**Delete A User**
+      <img src="Assets/screenshots/user routes/5- delete a user.png" align="center">
+      <br>
+
+**Add A Friend**  
+      <img src="Assets/screenshots/user routes/6- add a friend.png" align="center">
+      <br>
+
+**Remove A Friend**
+      <img src="Assets/screenshots/user routes/7- remove a friend.png" align="center">
+      <br>
+
+---
+
+<p align= "left"><h3>** Thought Routes Screenshots ** </h3>
 
 <br>
 
-**Create A Category**
-![Create A Category Screenshots.](./Assets/screenshots/create%20new%20category.png)
+**Get All Thoughts**
+      <img src="Assets/screenshots/thought routes/1- get all thoughts.png" align="center">
+      <br>
 
-<br>
+**Get A Single Thought**  
+      <img src="Assets/screenshots/thought routes/2- get a single thought.png" align="center">
+      <br>
 
-**Delete A Product**
-![Delete A Product Screenshots.](./Assets/screenshots/delete%20a%20product.png)
+**Create A Thought**
+      <img src="Assets/screenshots/thought routes/3- create a thought.png" align="center">
+      <br>
 
+**Update A Thought**  
+      <img src="Assets/screenshots/thought routes/4- update a thought.png" align="center">
+      <br>
+
+**Delete A Thought**
+      <img src="Assets/screenshots/thought routes/5- delete a thought.png" align="center">
+      <br>
+
+**Add A Reaction**  
+      <img src="Assets/screenshots/thought routes/6- add a reaction.png" align="center">
+      <br>
+
+**Remove A Reaction**
+      <img src="Assets/screenshots/thought routes/7- remove a reaction.png" align="center">
+      <br>
+      
 ---
 
 ## Deployed URL:
 
-- [Github Deployed Page](https://github.com/Joyce750526/ORM-Business-Backend-Platform)
+- [Github Deployed Page](https://github.com/Joyce750526/Social-Network-APP-with-MangoDB)
 
 ---
 
