@@ -63,8 +63,8 @@ module.exports = {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
-          ? res.status(404).json({ message: "No such user exists" })
-          : res.status(200).json({ message: "The user was deleted" })
+          ? res.status(404).json({ message: "No such thought exists" })
+          : res.status(200).json({ message: "The thought was deleted" })
       )
       .catch((err) => {
         console.log(err);
